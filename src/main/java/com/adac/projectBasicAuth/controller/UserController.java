@@ -25,13 +25,13 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 
-	@GetMapping
+	@GetMapping("/getAll")
 	public ResponseEntity<List<User>> getAllUsers() {
 		List<User> users = userService.getAllUsers();
 		return ResponseEntity.ok(users);
 	}
 
-	@PostMapping
+	@PostMapping("/new")
 	public ResponseEntity<String> createUser(@RequestBody @Valid NewUserRequest request) {
 		String messageResponse = userService.addNewUser(request);
 		return ResponseEntity.ok(messageResponse);

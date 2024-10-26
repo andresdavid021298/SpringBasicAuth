@@ -36,7 +36,7 @@ public class UserService implements IUserService {
 	@Override
 	public String deleteUser(String name) {
 		LOGGER.info("** DELETING USER **");
-		if (userCache.existUser(name)) {
+		if (!userCache.existUser(name)) {
 			LOGGER.error("USER {} NOT EXIST", name);
 			return String.format("Error, user %s not exist", name);
 		} else {
